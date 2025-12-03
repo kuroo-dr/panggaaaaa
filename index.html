@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="goodlucks.css">
+    <title>Good Luckssss my quennnnn</title>
+</head>
+<body>
+    <div class="gif-container">
+        <img src="gd.gif" alt="" class="gif">
+    </div>
+
+    <div class="btn">
+        <button class="comic-button">Click me my quennnnn</button>
+    </div>
+    
+    
+    <div class="popup-overlay">
+        <div class="vid">
+            <video src="vid.mp4" controls class="video"></video>
+        </div>
+
+        <div>
+            <h1 class="text">Good luckssss <br> my quennnnnnn <br> 😉😉😉😉😉😉😉😉</h1>
+            <h1 class="text1">Kayanggggg kayaaaaa <br> mooo yannnnnnnn <br> 😉😉😉😉😉😉😉😉</h1>
+        </div>
+
+        <div class="gif1">
+            <img src="kiss.gif" alt="">
+        </div>
+    </div>
+
+    <script>
+        (function(){
+            const button = document.querySelector('.comic-button');
+            const popupOverlay = document.querySelector('.popup-overlay');
+            const popupContent = document.querySelector('.popup-content');
+
+            if (!button || !popupOverlay) return;
+
+            // Show overlay when button is clicked
+            button.addEventListener('click', () => {
+                popupOverlay.classList.add('active');
+            });
+
+            // Hide overlay when clicking the backdrop (only when clicking outside content)
+            popupOverlay.addEventListener('click', (e) => {
+                if (e.target === popupOverlay) {
+                    popupOverlay.classList.remove('active');
+                }
+            });
+
+            // Prevent clicks inside popup content from closing the overlay
+            if (popupContent) {
+                popupContent.addEventListener('click', (e) => e.stopPropagation());
+            }
+
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+                    popupOverlay.classList.remove('active');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
